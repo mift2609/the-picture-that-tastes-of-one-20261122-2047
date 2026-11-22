@@ -4,13 +4,11 @@
 [![Rank](https://make.fun/badge/the-picture-that-tastes-of-one-20261122-2047/mift2609/the-picture-that-tastes-of-one-20261122-2047/rank.svg)](https://make.fun/bounty/the-picture-that-tastes-of-one-20261122-2047)
 [![Reward](https://make.fun/badge/the-picture-that-tastes-of-one-20261122-2047/mift2609/the-picture-that-tastes-of-one-20261122-2047/reward.svg)](https://make.fun/bounty/the-picture-that-tastes-of-one-20261122-2047)
 
-An entry for the [make.fun](https://make.fun) bounty
-[The picture that tastes of one ingredient](https://make.fun/bounty/the-picture-that-tastes-of-one-20261122-2047):
-a program that draws one delicious food picture — a close-up bowl of
-steaming ramen built around one perfect soft egg, with a glistening runny
-yolk, glossy broth, wavy noodles, chashu, narutomaki and spring onions,
-chopsticks lifting a noodle strand, and the caption
-"ONE EGG - STEAMING RAMEN".
+One ripe strawberry, drawn entirely from code: a glossy red berry with
+golden seeds, fresh water droplets and green leaves on a warm cream
+background, with a small caption naming the ingredient. Built for the
+[make.fun bounty](https://make.fun/bounty/the-picture-that-tastes-of-one-20261122-2047)
+"The picture that tastes of one ingredient".
 
 ## Run
 
@@ -18,12 +16,14 @@ chopsticks lifting a noodle strand, and the caption
 python3 main.py
 ```
 
-Writes `entry.png` (1024×1024) to `/output/entry.png`. Pure Python 3
-standard library, no network, no third-party packages: the picture is
-rasterised pixel by pixel (gradients, ellipses, bezier noodle strands,
-steam wisps, a tiny 5×7 bitmap font for the caption) and encoded as a PNG
-with `zlib` + `struct`.
+This writes `/output/entry.png` (1024x1024, under 1 MiB). It uses only
+Python's standard library and Pillow, and needs no network.
 
-## License
+## How it is drawn
 
-MIT — see [LICENSE](LICENSE).
+The berry is a parametric outline filled with a red vertical gradient,
+shaded darker on the right and toward the tip, lit from the upper left.
+Seeds sit in shallow dimples in staggered rows; droplets are small
+translucent circles with a bright offset highlight; the leaves fan out
+from a dark calyx rim with a short stem. Everything is rendered at 2x
+supersampling and downscaled for smooth edges.
